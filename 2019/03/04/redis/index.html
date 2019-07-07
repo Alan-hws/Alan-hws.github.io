@@ -1,232 +1,201 @@
-<!DOCTYPE HTML>
-<html class="no-js" lang="zh-CN">
+<!DOCTYPE html>
+<html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
-    <!--[if lte IE 9]>
-<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
-<![endif]-->
-<meta charset="utf-8">
-<meta http-equiv="X-DNS-Prefetch-Control" content="on">
-<link rel="dns-prefetch" href="http://yoursite.com">
-<link rel="dns-prefetch" href="//www.google-analytics.com">
-<link rel="prefetch" href="http://yoursite.com">
-<link rel="prefetch" href="//www.google-analytics.com">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="一个傻子">
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/favicon.ico">
 
+    <title>
+        
+        redis - undefined
+        
+    </title>
 
-<link rel="prerender" href="http://yoursite.com">
-
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
-<meta name="author" content="Alan-hws">
-<link rel="stylesheet" href="/css/JSimple.css">
-
-<link rel="shortcut icon" href="/images/favicon.png">
-
-
-<title>redis - hws 的博客</title>
-
-<meta name="keywords" content>
-
-<meta name="description " content="一个傻子">
-
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                processEscapes: true
-            }
-        });
-    </script>
-
-
-    
-
-    
-
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
 </head>
+
 <body>
-<div id="nav">
-    <nav class="nav-menu">
-        <a class="site-name current" href="/" title="记">记</a>
-        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
-        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
-        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
-        <!-- custom single page of menus -->
-        
-        
-        <a href="/help" title="帮助">
-            <i class="fa fa-question-circle"></i>
-            <span>帮助</span>
-        </a>
-        
-    </nav>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
 </div>
 
-<div class="nav-user">
-    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
-    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
-    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+<div class="index-about">
+    <i>  </i>
 </div>
 
-<div id="wrapper" class="clearfix">
-    <div id="body">
-        <div class="main" id="main">
-            <div id="cover">
-    <div class="cover-img"></div>
-    <div class="cover-info">
+<div class="index-container">
+    
+    <div class="index-left">
         
-        <h1 class="cover-siteName">记个小笔记</h1>
-        <h3 class="cover-siteTitle">小笔记</h3>
-        <p class="cover-siteDesc">就是一个记笔记的博客</p>
-        <div class="cover-sns">
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.gif">
+        </div>
+        <div class="name">
+            <i>Alan-hws</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
             
-    &nbsp;&nbsp;<div class="btn btn-telegram">
-        <a href="http://t.me/kunyintang" target="_blank" title="telegram" ref="friend">
-            <i class="fa fa-telegram"></i>
-        </a>
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
     </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组"><span class="toc-text">数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加到数组"><span class="toc-text">添加到数组</span></a></li></ol></li></ol>
+</div>
+    
+</div>
 
-    &nbsp;&nbsp;<div class="btn btn-instagram">
-        <a href="https://www.instagram.com/mtangsir/" target="_blank" title="instagram" ref="friend">
-            <i class="fa fa-instagram"></i>
-        </a>
-    </div>
 
-    &nbsp;&nbsp;<div class="btn btn-twitter">
-        <a href="https://twitter.com/tangkunyin" target="_blank" title="twitter" ref="friend">
-            <i class="fa fa-twitter"></i>
-        </a>
-    </div>
-
-    &nbsp;&nbsp;<div class="btn btn-github">
-        <a href="https://github.com/tangkunyin" target="_blank" title="github" ref="friend">
-            <i class="fa fa-github"></i>
-        </a>
-    </div>
-
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
 
         </div>
     </div>
 </div>
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
 
-            <div class="page-title">
-    <ul>
-        <li><a href="/">最近</a></li>
+
+<div class="post-container">
+    <div class="post-title">
+        redis
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-03-04 22:56:39</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#redis" title="redis">redis</a>
+        <span>/</span>
         
         
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
+        <p>这里记录一下 python 对 redis 的基本操作</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="添加到数组"><a href="#添加到数组" class="headerlink" title="添加到数组"></a>添加到数组</h3>
         
-        <li class="page-search">
-    <form id="search" class="search-form">
-        <input type="text" readonly="readonly" id="local-search-input-tip" placeholder="读物检索~">
-        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
-    </form>
-</li>
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
 
     </ul>
-</div>
-<div class="main-inner">
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-        <div class="post-header">
-            <div class="post-author clearfix">
-                <a class="avatar fleft" href="https://alan-hws.github.io/" target="_blank">
-                    <img width="48" src="/images/favicon.png" alt="avatar">
-                </a>
-                <p><span class="label">作者</span>
-                    <a href="https://alan-hws.github.io/" target="_blank">hws</a>
-                    <span title="最后编辑于&nbsp;2019-03-04">2019-03-04</span>
-                </p>
-                <p>hws 的笔记小本本</p>
-            </div>
-            <h2 class="post-title">redis</h2>
-            <div class="post-meta">
-                本文共计35个字 |
-                您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
-            </div>
-        </div>
-        <div class="post-content markdown-body">
-            <p>这里记录一下 python 对 redis 的基本操作</p>
-<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="添加到数组"><a href="#添加到数组" class="headerlink" title="添加到数组"></a>添加到数组</h3>
-        </div>
-        <div class="post-tool">
-            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
-            </a>
-        </div>
-        
-        <div class="post-tags">标签：
-            
-            <a href="/tags/redis/">redis</a>
-            
-        </div>
-        
-    </article>
     
-    <p style="text-align: center">本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
-    
-    
-
-    
-
-</div>
-<script src="/js/busuanzi.pure.mini.js"></script>
-
-
-        </div><!-- end #main-->
-    </div><!-- end #body -->
-    <footer class="footer">
-    <div class="footer-inner" style="text-align: center">
-        <p>
-            <a href="/about" title="关于">关于</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
-            <!-- 自定义链接 -->
-            <a href="/help" title="帮助">帮助</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
-            <a href="/links" title="友链">友链</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
-            <a href="/sitemap.xml" title="地图">地图</a>
-        </p>
-        <p>
-            本站已建立&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbsp天，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议创作</a><br>
-            ©2017-<span id="cpYear"></span> 基于&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
-            ，主题采用&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
-            ，作者&nbsp<a href="https://alan-hws.github.io/" target="_blank" rel="friend">hws</a>
-            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
-        </p>
-    </div>
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
 </footer>
-<script src="/js/SimpleCore.js"></script>
 
-</div>
-<!-- search pop -->
-<div class="popup search-popup local-search-popup">
-    <div class="local-search-header clearfix">
-        <span class="search-icon">
-            <i class="fa fa-search"></i>
-        </span>
-        <span class="popup-btn-close">
-            <i class="fa fa-times-circle"></i>
-        </span>
-        <div class="local-search-input-wrapper">
-            <input id="local-search-input" spellcheck="false" type="text" autocomplete="off" placeholder="请输入查询关键词">
-        </div>
-    </div>
-    <div id="local-search-result"></div>
-</div>
-<div class="fixed-btn">
-    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
-</div>
-<script>
-    $(function () {
-        var jsi_config = {
-            buildingTime: '02/26/2019',
-            current: $('.post-tags').length > 0 ? 'post' : 'archive',
-            snsQRCode: '/images/sns-qrcode.png',
-            donateImg: '/images/donate-qr.png',
-            localSearch: { dbPath: '' },
-            readMode: 'day'
-        };
-        
-        SimpleCore.init(jsi_config);
-        
-    });
-</script>
+
+
+
 </body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
 </html>
