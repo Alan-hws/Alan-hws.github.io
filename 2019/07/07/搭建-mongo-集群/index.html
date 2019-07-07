@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="一个傻子">
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        搭建 mongo 集群 - Alan-hws de 博客
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> a fool </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.gif">
+        </div>
+        <div class="name">
+            <i>Alan-hws</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#说明"><span class="toc-text">说明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#角色说明"><span class="toc-text">角色说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#当前配置方式说明"><span class="toc-text">当前配置方式说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#服务器规划"><span class="toc-text">服务器规划</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#端口分配："><span class="toc-text">端口分配：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署"><span class="toc-text">部署</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建相关目录"><span class="toc-text">创建相关目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置server-config机器"><span class="toc-text">配置server config机器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#添加配置文件"><span class="toc-text">添加配置文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#启动三台服务器的config-server"><span class="toc-text">启动三台服务器的config server</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#登录任意一台配置服务器，初始化配置副本集"><span class="toc-text">登录任意一台配置服务器，初始化配置副本集</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置分片、副本集"><span class="toc-text">配置分片、副本集</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#配置第一个分片副本集"><span class="toc-text">配置第一个分片副本集</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#启动三台服务器的shard1-server"><span class="toc-text">启动三台服务器的shard1 server</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#登陆任意一台服务器，初始化副本集"><span class="toc-text">登陆任意一台服务器，初始化副本集</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#使用admin数据库"><span class="toc-text">使用admin数据库</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#定义副本集配置"><span class="toc-text">定义副本集配置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#初始化副本集配置"><span class="toc-text">初始化副本集配置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#查看分区状态"><span class="toc-text">查看分区状态</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置路由服务器-mongos"><span class="toc-text">配置路由服务器 mongos</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#以下配置在服务器1、4上执行"><span class="toc-text">以下配置在服务器1、4上执行</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#配置内容"><span class="toc-text">配置内容</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#启动二台服务器的mongos-server"><span class="toc-text">启动二台服务器的mongos server</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#启用分片"><span class="toc-text">启用分片</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#使用admin数据库-1"><span class="toc-text">使用admin数据库</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#串联路由服务器与分配副本集"><span class="toc-text">串联路由服务器与分配副本集</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#查看集群状态"><span class="toc-text">查看集群状态</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#到这里就算配置完了"><span class="toc-text">到这里就算配置完了</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#集群启动脚本："><span class="toc-text">集群启动脚本：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关闭"><span class="toc-text">关闭</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#连接mongo"><span class="toc-text">连接mongo</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> a fool </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        搭建 mongo 集群
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2019-07-07 14:21:22</span></span>
+        
+        
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
+        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><h4 id="角色说明"><a href="#角色说明" class="headerlink" title="角色说明"></a>角色说明</h4><p><strong>mongos</strong>，数据库集群请求的入口，所有的请求都通过mongos进行协调，不需要在应用程序添加一个路由选择器，mongos自己就是一个请求分发中心，它负责把对应的数据请求请求转发到对应的shard服务器上。在生产环境通常有多mongos作为请求的入口，防止其中一个挂掉所有的mongodb请求都没有办法操作。</p>
+<p><strong>config server</strong>，顾名思义为配置服务器，存储所有数据库元信息（路由、分片）的配置。mongos本身没有物理存储分片服务器和数据路由信息，只是缓存在内存里，配置服务器则实际存储这些数据。mongos第一次启动或者关掉重启就会从 config server 加载配置信息，以后如果配置服务器信息变化会通知到所有的 mongos 更新自己的状态，这样 mongos 就能继续准确路由。在生产环境通常有多个 config server 配置服务器，因为它存储了分片路由的元数据，防止数据丢失！</p>
+<p><strong>shard</strong>，分片（sharding）是指将数据库拆分，将其分散在不同的机器上的过程。将数据分散到不同的机器上，不需要功能强大的服务器就可以存储更多的数据和处理更大的负载。基本思想就是将集合切成小块，这些块分散到若干片里，每个片只负责总数据的一部分，最后通过一个均衡器来对各个分片进行均衡（数据迁移）。</p>
+<p><strong>replica set</strong>，副本集，其实就是shard的备份，防止shard挂掉之后数据丢失。复制提供了数据的冗余备份，并在多个服务器上存储数据副本，提高了数据的可用性， 并可以保证数据的安全性。</p>
+<p><strong>仲裁者（Arbiter）</strong>，是复制集中的一个MongoDB实例，它并不保存数据。仲裁节点使用最小的资源并且不要求硬件设备，不能将Arbiter部署在同一个数据集节点中，可以部署在其他应用服务器或者监视服务器中，也可部署在单独的虚拟机中。为了确保复制集中有奇数的投票成员（包括primary），需要添加仲裁节点做为投票，否则primary不能运行时不会自动切换primary。</p>
+<h4 id="当前配置方式说明"><a href="#当前配置方式说明" class="headerlink" title="当前配置方式说明"></a>当前配置方式说明</h4><ul>
+<li>配置文件采用yaml方式来配置</li>
+<li>生产中取消了仲裁者的角色，因为仲裁者也不会存储数据，只是起到选举的作用，线上为了保证数据安全，每份数据都会配置两个副本集，也就是每份数据存储了三份。</li>
+<li>优化配置，采用五台集群</li>
+</ul>
+<h4 id="服务器规划"><a href="#服务器规划" class="headerlink" title="服务器规划"></a>服务器规划</h4><p>|106 | 101 | 125 | 118| 119|<br>|1|2|3|4|5|<br>|:—–:|:—–:|:—–:|:—–:|:—–:|<br>|192.168.1.106|192.168.1.101|192.168.1.125|192.168.1.118|192.168.1.119|<br>|mongos|config server|config server|mongos|config server|<br>|shard1|shard2|shard2|shard1|shard1|<br>|shard4|shard4|shard3|shard2|shard3|<br>|shard5|shard5|shard4|shard3|shard5|</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">职能名</th>
+<th style="text-align:center">机器1</th>
+<th style="text-align:center">机器2</th>
+<th style="text-align:center">机器3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">mongos</td>
+<td style="text-align:center">106 <strong>(1)</strong></td>
+<td style="text-align:center">118 <strong>(4)</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">config server</td>
+<td style="text-align:center">101 <strong>(3)</strong></td>
+<td style="text-align:center">125 <strong>(2)</strong></td>
+<td style="text-align:center">119 <strong>(5)</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">shard1</td>
+<td style="text-align:center">118 <strong>(4)</strong></td>
+<td style="text-align:center">119 <strong>(5)</strong></td>
+<td style="text-align:center">106 <strong>(1)</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">shard2</td>
+<td style="text-align:center">125 <strong>(2)</strong></td>
+<td style="text-align:center">101 <strong>(3)</strong></td>
+<td style="text-align:center">118 <strong>(4)</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">shard3</td>
+<td style="text-align:center">101 <strong>(3)</strong></td>
+<td style="text-align:center">118 <strong>(4)</strong></td>
+<td style="text-align:center">119 <strong>(5)</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">shard4</td>
+<td style="text-align:center">106 <strong>(1)</strong></td>
+<td style="text-align:center">125 <strong>(2)</strong></td>
+<td style="text-align:center">101 <strong>(3)</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">shard5</td>
+<td style="text-align:center">119 <strong>(5)</strong></td>
+<td style="text-align:center">106 <strong>(1)</strong></td>
+<td style="text-align:center">125 <strong>(2)</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="端口分配："><a href="#端口分配：" class="headerlink" title="端口分配："></a>端口分配：</h4><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mongos：<span class="number">27017</span></span><br><span class="line">config：<span class="number">21000</span></span><br><span class="line">shard1：<span class="number">27001</span></span><br><span class="line">shard2：<span class="number">27002</span></span><br><span class="line">shard3：<span class="number">27003</span></span><br><span class="line">shard4：<span class="number">27004</span></span><br><span class="line">shard5：<span class="number">27005</span></span><br></pre></td></tr></table></figure>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><h4 id="创建相关目录"><a href="#创建相关目录" class="headerlink" title="创建相关目录"></a>创建相关目录</h4><p>根据服务器的规范，分别在对应的服务器上建立conf、mongos、config、shard1、shard2、shard3、shard4、shard5等目录，因为mongos不存储数据，只需要建立日志文件目录即可。<br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">mkdir</span> -p /usr/local/mongodb/conf</span><br><span class="line"><span class="title">mkdir</span> -p /<span class="class"><span class="keyword">data</span>/mongos/log</span></span><br><span class="line"><span class="title">mkdir</span> -p /<span class="class"><span class="keyword">data</span>/config/<span class="keyword">data</span></span></span><br><span class="line"><span class="title">mkdir</span> -p /<span class="class"><span class="keyword">data</span>/config/log</span></span><br><span class="line"><span class="title">mkdir</span> -p /<span class="class"><span class="keyword">data</span>/shard1/<span class="keyword">data</span></span></span><br><span class="line"><span class="title">mkdir</span> -p /<span class="class"><span class="keyword">data</span>/shard1/log</span></span><br><span class="line"><span class="title">mkdir</span> -p /<span class="class"><span class="keyword">data</span>/shard2/<span class="keyword">data</span></span></span><br><span class="line"><span class="title">mkdir</span> -p /<span class="class"><span class="keyword">data</span>/shard2/log</span></span><br><span class="line"><span class="title">mkdir</span> -p /<span class="class"><span class="keyword">data</span>/shard3/<span class="keyword">data</span></span></span><br><span class="line"><span class="title">mkdir</span> -p /<span class="class"><span class="keyword">data</span>/shard3/log</span></span><br><span class="line"><span class="title">mkdir</span> -p /<span class="class"><span class="keyword">data</span>/shard4/<span class="keyword">data</span></span></span><br><span class="line"><span class="title">mkdir</span> -p /<span class="class"><span class="keyword">data</span>/shard4/log</span></span><br><span class="line"><span class="title">mkdir</span> -p /<span class="class"><span class="keyword">data</span>/shard5/<span class="keyword">data</span></span></span><br><span class="line"><span class="title">mkdir</span> -p /<span class="class"><span class="keyword">data</span>/shard5/log</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="配置server-config机器"><a href="#配置server-config机器" class="headerlink" title="配置server config机器"></a>配置server config机器</h4><p>在服务器2、3、4上配置以下内容：</p>
+<h5 id="添加配置文件"><a href="#添加配置文件" class="headerlink" title="添加配置文件"></a>添加配置文件</h5><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/config.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## content</span></span><br><span class="line"><span class="attr">systemLog:</span></span><br><span class="line"><span class="attr">  destination:</span> <span class="string">file</span></span><br><span class="line"><span class="attr">  logAppend:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">/data/config/log/config.log</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># Where and how to store data.</span></span><br><span class="line"><span class="attr">storage:</span></span><br><span class="line"><span class="attr">  dbPath:</span> <span class="string">/data/config/data</span></span><br><span class="line"><span class="attr">  journal:</span></span><br><span class="line"><span class="attr">    enabled:</span> <span class="literal">true</span></span><br><span class="line"><span class="comment"># how the process runs</span></span><br><span class="line"><span class="attr">processManagement:</span></span><br><span class="line"><span class="attr">  fork:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  pidFilePath:</span> <span class="string">/data/config/log/configsrv.pid</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># network interfaces</span></span><br><span class="line"><span class="attr">net:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">21000</span></span><br><span class="line"><span class="attr">  bindIp:</span> <span class="number">192.168</span><span class="number">.1</span><span class="number">.101</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#operationProfiling:</span></span><br><span class="line"><span class="attr">replication:</span></span><br><span class="line"><span class="attr">    replSetName:</span> <span class="string">config</span>        </span><br><span class="line"></span><br><span class="line"><span class="attr">sharding:</span></span><br><span class="line"><span class="attr">    clusterRole:</span> <span class="string">configsvr</span></span><br></pre></td></tr></table></figure>
+<h5 id="启动三台服务器的config-server"><a href="#启动三台服务器的config-server" class="headerlink" title="启动三台服务器的config server"></a>启动三台服务器的config server</h5><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --config /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/config.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
+<h5 id="登录任意一台配置服务器，初始化配置副本集"><a href="#登录任意一台配置服务器，初始化配置副本集" class="headerlink" title="登录任意一台配置服务器，初始化配置副本集"></a>登录任意一台配置服务器，初始化配置副本集</h5><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#连接</span></span><br><span class="line">mongo 192.168.1.101:21000</span><br><span class="line"><span class="comment">#config变量</span></span><br><span class="line">config = &#123;</span><br><span class="line"><span class="built_in">..</span>.    _id : <span class="string">"config"</span>,</span><br><span class="line"><span class="built_in">..</span>.     members : [</span><br><span class="line"><span class="built_in">..</span>.         &#123;_id : 0, host : <span class="string">"192.168.1.101:21000"</span> &#125;,</span><br><span class="line"><span class="built_in">..</span>.         &#123;_id : 1, host : <span class="string">"192.168.1.125:21000"</span> &#125;,</span><br><span class="line"><span class="built_in">..</span>.         &#123;_id : 2, host : <span class="string">"192.168.1.119:21000"</span> &#125;</span><br><span class="line"><span class="built_in">..</span>.     ]</span><br><span class="line"><span class="built_in">..</span>. &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#初始化副本集</span></span><br><span class="line">rs.initiate(config)</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看分区状态</span></span><br><span class="line">rs.status();</span><br></pre></td></tr></table></figure>
+<p> 其中，”_id” : “configs”应与配置文件中配置的 replicaction.replSetName 一致，”members” 中的 “host” 为三个节点的ip和port</p>
+<h4 id="配置分片、副本集"><a href="#配置分片、副本集" class="headerlink" title="配置分片、副本集"></a>配置分片、副本集</h4><h5 id="配置第一个分片副本集"><a href="#配置第一个分片副本集" class="headerlink" title="配置第一个分片副本集"></a>配置第一个分片副本集</h5><p>在服务器1、4、5上面做以下配置<br>配置文件<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/shard1.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">###### 配置文件内容</span></span><br><span class="line"><span class="comment"># where to write logging data.</span></span><br><span class="line"><span class="attr">systemLog:</span></span><br><span class="line"><span class="attr">  destination:</span> <span class="string">file</span></span><br><span class="line"><span class="attr">  logAppend:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">/data/shard1/log/shard1.log</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># Where and how to store data.</span></span><br><span class="line"><span class="attr">storage:</span></span><br><span class="line"><span class="attr">  dbPath:</span> <span class="string">/data/shard1/data</span></span><br><span class="line"><span class="attr">  journal:</span></span><br><span class="line"><span class="attr">    enabled:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  wiredTiger:</span></span><br><span class="line"><span class="attr">    engineConfig:</span></span><br><span class="line"><span class="attr">       cacheSizeGB:</span> <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># how the process runs</span></span><br><span class="line"><span class="attr">processManagement:</span></span><br><span class="line"><span class="attr">  fork:</span> <span class="literal">true</span> </span><br><span class="line"><span class="attr">  pidFilePath:</span> <span class="string">/data/shard1/log/shard1.pid</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># network interfaces</span></span><br><span class="line"><span class="attr">net:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">27001</span></span><br><span class="line"><span class="attr">  bindIp:</span> <span class="number">192.168</span><span class="number">.1</span><span class="number">.106</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#operationProfiling:</span></span><br><span class="line"><span class="attr">replication:</span></span><br><span class="line"><span class="attr">    replSetName:</span> <span class="string">shard1</span></span><br><span class="line"><span class="attr">sharding:</span></span><br><span class="line"><span class="attr">    clusterRole:</span> <span class="string">shardsvr</span></span><br></pre></td></tr></table></figure>
+<h6 id="启动三台服务器的shard1-server"><a href="#启动三台服务器的shard1-server" class="headerlink" title="启动三台服务器的shard1 server"></a>启动三台服务器的shard1 server</h6><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod  --config  /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/shard1.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
+<h6 id="登陆任意一台服务器，初始化副本集"><a href="#登陆任意一台服务器，初始化副本集" class="headerlink" title="登陆任意一台服务器，初始化副本集"></a>登陆任意一台服务器，初始化副本集</h6><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">mongo</span> 192<span class="selector-class">.168</span><span class="selector-class">.1</span><span class="selector-class">.106</span><span class="selector-pseudo">:27001</span></span><br></pre></td></tr></table></figure>
+<h6 id="使用admin数据库"><a href="#使用admin数据库" class="headerlink" title="使用admin数据库"></a>使用admin数据库</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="keyword">admin</span></span><br></pre></td></tr></table></figure>
+<h6 id="定义副本集配置"><a href="#定义副本集配置" class="headerlink" title="定义副本集配置"></a>定义副本集配置</h6><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">config = &#123;</span><br><span class="line">...    <span class="string">_id :</span> <span class="string">"shard1"</span>,</span><br><span class="line">...     <span class="string">members :</span> [</span><br><span class="line">...         &#123;<span class="string">_id :</span> <span class="number">1</span>, <span class="string">host :</span> <span class="string">"192.168.1.106:27001"</span> &#125;,,</span><br><span class="line">...         &#123;<span class="string">_id :</span> <span class="number">1</span>, <span class="string">host :</span> <span class="string">"192.168.1.118:27001"</span> &#125;,</span><br><span class="line">...         &#123;<span class="string">_id :</span> <span class="number">2</span>, <span class="string">host :</span> <span class="string">"192.168.1.119:27001"</span> &#125;</span><br><span class="line">...     ]</span><br><span class="line">... &#125;</span><br></pre></td></tr></table></figure>
+<h6 id="初始化副本集配置"><a href="#初始化副本集配置" class="headerlink" title="初始化副本集配置"></a>初始化副本集配置</h6><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rs.initiate(<span class="built_in">config</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h6 id="查看分区状态"><a href="#查看分区状态" class="headerlink" title="查看分区状态"></a>查看分区状态</h6><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rs.status()<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>其他四个分片参照分片1配置好</li>
+</ul>
+<h4 id="配置路由服务器-mongos"><a href="#配置路由服务器-mongos" class="headerlink" title="配置路由服务器 mongos"></a>配置路由服务器 mongos</h4><h5 id="以下配置在服务器1、4上执行"><a href="#以下配置在服务器1、4上执行" class="headerlink" title="以下配置在服务器1、4上执行"></a>以下配置在服务器1、4上执行</h5><ul>
+<li>注意：先启动配置服务器和分片服务器,后启动路由实例</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/mongos.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
+<h6 id="配置内容"><a href="#配置内容" class="headerlink" title="配置内容"></a>配置内容</h6><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">systemLog:</span></span><br><span class="line"><span class="attr">  destination:</span> <span class="string">file</span></span><br><span class="line"><span class="attr">  logAppend:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">/data/mongos/log/mongos.log</span></span><br><span class="line"><span class="attr">processManagement:</span></span><br><span class="line"><span class="attr">  fork:</span> <span class="literal">true</span></span><br><span class="line"><span class="comment">#pidFilePath: /usr/local/mongodb/mongos.pid</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#network interfaces</span></span><br><span class="line"><span class="attr">net:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">20000</span></span><br><span class="line"><span class="attr">  bindIp:</span> <span class="number">192.168</span><span class="number">.1</span><span class="number">.106</span></span><br><span class="line"><span class="comment">#监听的配置服务器,只能有1个或者3个 configs为配置服务器的副本集名字</span></span><br><span class="line"><span class="attr">sharding:</span></span><br><span class="line"><span class="attr">   configDB:</span> <span class="string">config/192.168.1.101:21000,192.168.1.125:21000,192.168.1.119:21000</span></span><br></pre></td></tr></table></figure>
+<h6 id="启动二台服务器的mongos-server"><a href="#启动二台服务器的mongos-server" class="headerlink" title="启动二台服务器的mongos server"></a>启动二台服务器的mongos server</h6><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongos  --config  /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/mongos.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
+<h4 id="启用分片"><a href="#启用分片" class="headerlink" title="启用分片"></a>启用分片</h4><p>目前搭建了mongodb配置服务器、路由服务器，各个分片服务器，不过应用程序连接到mongos路由服务器并不能使用分片机制，还需要在程序里设置分片配置，让分片生效。</p>
+<p>登陆任意一台mongos<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">mongo</span> 192<span class="selector-class">.168</span><span class="selector-class">.0</span><span class="selector-class">.31</span><span class="selector-pseudo">:20000</span></span><br></pre></td></tr></table></figure></p>
+<h6 id="使用admin数据库-1"><a href="#使用admin数据库-1" class="headerlink" title="使用admin数据库"></a>使用admin数据库</h6><p>use  admin</p>
+<h6 id="串联路由服务器与分配副本集"><a href="#串联路由服务器与分配副本集" class="headerlink" title="串联路由服务器与分配副本集"></a>串联路由服务器与分配副本集</h6><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sh.addShard("shard<span class="number">1/192.168.1</span>.<span class="number">106:27001,192</span>.<span class="number">168.1.118</span>:<span class="number">27001,192.168</span>.<span class="number">1.119:27001</span>")</span><br><span class="line">sh.addShard("shard<span class="number">2/192.168.1</span>.<span class="number">125:27002,192</span>.<span class="number">168.1.101</span>:<span class="number">27002,192.168</span>.<span class="number">1.118:27002</span>")</span><br><span class="line">sh.addShard("shard<span class="number">3/192.168.1</span>.<span class="number">101:27003,192</span>.<span class="number">168.1.118</span>:<span class="number">27003,192.168</span>.<span class="number">1.119:27003</span>")</span><br><span class="line">sh.addShard("shard<span class="number">4/192.168.1</span>.<span class="number">106:27004,192</span>.<span class="number">168.1.125</span>:<span class="number">27004,192.168</span>.<span class="number">1.101:27004</span>")</span><br><span class="line">sh.addShard("shard<span class="number">5/192.168.1</span>.<span class="number">106:27005,192</span>.<span class="number">168.1.119</span>:<span class="number">27005,192.168</span>.<span class="number">1.125:27005</span>")</span><br></pre></td></tr></table></figure>
+<h6 id="查看集群状态"><a href="#查看集群状态" class="headerlink" title="查看集群状态"></a>查看集群状态</h6><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">sh</span><span class="selector-class">.status</span>()</span><br></pre></td></tr></table></figure>
+<h4 id="到这里就算配置完了"><a href="#到这里就算配置完了" class="headerlink" title="到这里就算配置完了"></a>到这里就算配置完了</h4><h5 id="集群启动脚本："><a href="#集群启动脚本：" class="headerlink" title="集群启动脚本："></a>集群启动脚本：</h5><p>把下面启动命令分别复制到相应的机器上运行</p>
+<blockquote>
+<p>按顺序，先启动配置服务器，在启动分片，最后才到路由服务器</p>
+</blockquote>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">119:</span><br><span class="line">mongod --config /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/config.<span class="keyword">conf</span></span><br><span class="line">mongod  --config  /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/shard1.<span class="keyword">conf</span></span><br><span class="line">mongod  --config  /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/shard3.<span class="keyword">conf</span></span><br><span class="line">mongod  --config  /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/shard5.<span class="keyword">conf</span></span><br><span class="line"></span><br><span class="line">101:</span><br><span class="line">mongod --config /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/config.<span class="keyword">conf</span></span><br><span class="line">mongod  --config  /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/shard2.<span class="keyword">conf</span></span><br><span class="line">mongod  --config  /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/shard3.<span class="keyword">conf</span></span><br><span class="line">mongod  --config  /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/shard4.<span class="keyword">conf</span></span><br><span class="line"></span><br><span class="line">125:</span><br><span class="line">mongod --config /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/config.<span class="keyword">conf</span></span><br><span class="line">mongod  --config  /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/shard2.<span class="keyword">conf</span></span><br><span class="line">mongod  --config  /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/shard4.<span class="keyword">conf</span></span><br><span class="line">mongod  --config  /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/shard5.<span class="keyword">conf</span></span><br><span class="line"></span><br><span class="line">106:</span><br><span class="line">mongod  --config  /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/shard1.<span class="keyword">conf</span></span><br><span class="line">mongod  --config  /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/shard4.<span class="keyword">conf</span></span><br><span class="line">mongod  --config  /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/shard5.<span class="keyword">conf</span></span><br><span class="line">mongos  --config  /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/mongos.<span class="keyword">conf</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">118:</span><br><span class="line">mongod  --config  /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/shard1.<span class="keyword">conf</span></span><br><span class="line">mongod  --config  /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/shard2.<span class="keyword">conf</span></span><br><span class="line">mongod  --config  /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/shard3.<span class="keyword">conf</span></span><br><span class="line">mongos  --config  /usr/<span class="keyword">local</span>/mongodb/<span class="keyword">conf</span>/mongos.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
+<h4 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h4><blockquote>
+<p>killall mongod<br>killall mongos<br>先通过shell连上服务器：<br>mongo<br>use admin<br>db.shutdownServer()<br>或者直接kill -15 <pid>,注意kill -9 可能会导致数据文件损坏</pid></p>
+</blockquote>
+<h4 id="连接mongo"><a href="#连接mongo" class="headerlink" title="连接mongo"></a>连接mongo</h4><blockquote>
+<p>mongo 192.168.1.106:27017  或  mongo 192.168.1.118:27017  </p>
+</blockquote>
+<p>参考：</p>
+<blockquote>
+<p><a href="http://www.ityouknow.com/mongodb/2017/08/05/mongodb-cluster-setup.html" target="_blank" rel="noopener">http://www.ityouknow.com/mongodb/2017/08/05/mongodb-cluster-setup.html</a><br><a href="http://www.ityouknow.com/mongodb/2017/08/16/install-mongodb-cluster.html" target="_blank" rel="noopener">http://www.ityouknow.com/mongodb/2017/08/16/install-mongodb-cluster.html</a></p>
+</blockquote>
+
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
