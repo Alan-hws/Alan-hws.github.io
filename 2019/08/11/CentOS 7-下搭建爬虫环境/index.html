@@ -56,32 +56,32 @@
             <li>
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
-                    <span>主页</span>
+                    <span>HOME</span>
                 </a>
             </li>
             <li>
                 <a href="/tags">
                     <i class="iconfont icon-biaoqian1"></i>
-                    <span>标签</span>
+                    <span>TAGS</span>
                 </a>
             </li>
             <li>
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
-                    <span>存档</span>
+                    <span>ARCHIVES</span>
                 </a>
             </li>
             <li>
                 <a href="/about/">
                     <i class="iconfont icon-guanyu2"></i>
-                    <span>关于</span>
+                    <span>ABOUT</span>
                 </a>
             </li>
             
             <li>
                 <a id="search">
                     <i class="iconfont icon-sousuo1"></i>
-                    <span>搜索</span>
+                    <span>SEARCH</span>
                 </a>
             </li>
             
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#在-CentOS-7-下搭建爬虫开发环境"><span class="toc-text">在 CentOS 7 下搭建爬虫开发环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础环境"><span class="toc-text">基础环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装说明"><span class="toc-text">安装说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python3-5及以上版本安装"><span class="toc-text">Python3.5及以上版本安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis安装"><span class="toc-text">Redis安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MongoDB"><span class="toc-text">MongoDB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#supervisor"><span class="toc-text">supervisor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#virtualenv"><span class="toc-text">virtualenv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装chrome无头浏览器"><span class="toc-text">安装chrome无头浏览器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考："><span class="toc-text">参考：</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#在-CentOS-7-下搭建爬虫开发环境"><span class="toc-text">在 CentOS 7 下搭建爬虫开发环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础环境"><span class="toc-text">基础环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装说明"><span class="toc-text">安装说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python3-5及以上版本安装"><span class="toc-text">Python3.5及以上版本安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis安装"><span class="toc-text">Redis安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MongoDB"><span class="toc-text">MongoDB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#supervisor"><span class="toc-text">supervisor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#virtualenv"><span class="toc-text">virtualenv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装chrome无头浏览器"><span class="toc-text">安装chrome无头浏览器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考："><span class="toc-text">参考：</span></a></li></ol>
 </div>
     
 </div>
@@ -100,7 +100,7 @@
         <div class="search-input">
             <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
             <input id="search-input">
-            <span id="begin-search">搜索</span>
+            <span id="begin-search">search</span>
         </div>
         <div class="search-result-container" id="search-result-container">
 
@@ -123,16 +123,16 @@
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2019-08-11 20:25:59</span></span>
+        <span class="attr">Post：<span>2019-08-11 20:25:59</span></span>
         
-        <span class="attr">标签：/
+        <span class="attr">Tags：/
         
         <a class="tag" href="/tags/#Linux / 爬虫环境搭建" title="Linux / 爬虫环境搭建">Linux / 爬虫环境搭建</a>
         <span>/</span>
         
         
         </span>
-        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
 </span>
 
     </div>
@@ -149,22 +149,22 @@
 </ul>
 <hr>
 <h2 id="安装说明"><a href="#安装说明" class="headerlink" title="安装说明"></a>安装说明</h2><h3 id="Python3-5及以上版本安装"><a href="#Python3-5及以上版本安装" class="headerlink" title="Python3.5及以上版本安装"></a>Python3.5及以上版本安装</h3><p>截止至2018年8月，由于<code>Python3.7</code>尚未完全稳定，因此，推荐使用<code>Python3.6</code>版本。</p>
-<p><code>Python3.6</code>安装方法如下所示：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 下载Python源码</span></span><br><span class="line">wget https://www.python.org/ftp/python/3.6.8/Python-3.6.8.tgz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装相关依赖</span></span><br><span class="line">yum install openssl-devel bzip2-devel expat-devel gdbm-devel readline-devel sqlite-devel -y</span><br><span class="line"></span><br><span class="line">cd Python-3.6.8</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译 安装</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> --prefix 指定安装目录  --<span class="built_in">enable</span>-optimizations为优化选项</span></span><br><span class="line">./configure --prefix=/usr/local/python3.6 --enable-optimizations</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></p>
+<p><code>Python3.6</code>安装方法如下所示：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#</span> 下载Python源码</span><br><span class="line">wget https://www.python.org/ftp/python/3.6.8/Python-3.6.8.tgz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 安装相关依赖</span><br><span class="line">yum install openssl-devel bzip2-devel expat-devel gdbm-devel readline-devel sqlite-devel -y</span><br><span class="line"></span><br><span class="line">cd Python-3.6.8</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 编译 安装</span><br><span class="line"><span class="meta">#</span> --prefix 指定安装目录  --enable-optimizations为优化选项</span><br><span class="line">./configure --prefix=/usr/local/python3.6 --enable-optimizations</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></p>
 <hr>
-<h3 id="Redis安装"><a href="#Redis安装" class="headerlink" title="Redis安装"></a>Redis安装</h3><p>Redis安装教程如下所示：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装Remi<span class="string">'s RPM repository</span></span></span><br><span class="line">yum install -y http://rpms.famillecollet.com/enterprise/remi-release-7.rpm</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装redis</span></span><br><span class="line">yum --enablerepo=remi install redis</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 开启redis服务</span></span><br><span class="line">service redis start</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 打开redis客户端，成功进入客户端则安装成功</span></span><br><span class="line">redis-cl</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果远程连接不上则检查一下防火墙6379端口是否开启</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Redis安装"><a href="#Redis安装" class="headerlink" title="Redis安装"></a>Redis安装</h3><p>Redis安装教程如下所示：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装Remi's RPM repository</span><br><span class="line">yum install -y http://rpms.famillecollet.com/enterprise/remi-release-7.rpm</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 安装redis</span><br><span class="line">yum --enablerepo=remi install redis</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 开启redis服务</span><br><span class="line">service redis start</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 打开redis客户端，成功进入客户端则安装成功</span><br><span class="line">redis-cl</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 如果远程连接不上则检查一下防火墙6379端口是否开启</span><br></pre></td></tr></table></figure></p>
 <hr>
-<h3 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h3><p>MongoDB安装教程如下所示：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 配置mongodb安装源</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建/etc/yum.repos.d/mongodb-org-3.6.repo文件（配置mongodb的源信息）</span></span><br><span class="line">touch /etc/yum.repos.d/mongodb-org-3.6.repo</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将以下信息复制粘贴到创建的文件当中</span></span><br><span class="line">[mongodb-org-3.6]</span><br><span class="line">name=MongoDB Repository</span><br><span class="line">baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.6/x86_64/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=1</span><br><span class="line">gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装mongodb</span></span><br><span class="line">yum install -y mongodb-org</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 开启mongodb服务</span></span><br><span class="line">(service mongodb start)(用下面这个)</span><br><span class="line">mongod --config /etc/mongod.conf --wiredTigerCacheSizeGB 2</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入mongodb客户端，成功则安装成功</span></span><br><span class="line">mongo</span><br></pre></td></tr></table></figure></p>
+<h3 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h3><p>MongoDB安装教程如下所示：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 配置mongodb安装源</span><br><span class="line"><span class="meta">#</span> 创建/etc/yum.repos.d/mongodb-org-3.6.repo文件（配置mongodb的源信息）</span><br><span class="line">touch /etc/yum.repos.d/mongodb-org-3.6.repo</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 将以下信息复制粘贴到创建的文件当中</span><br><span class="line">[mongodb-org-3.6]</span><br><span class="line">name=MongoDB Repository</span><br><span class="line">baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.6/x86_64/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=1</span><br><span class="line">gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 安装mongodb</span><br><span class="line">yum install -y mongodb-org</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 开启mongodb服务</span><br><span class="line">(service mongodb start)(用下面这个)</span><br><span class="line">mongod --config /etc/mongod.conf --wiredTigerCacheSizeGB 2</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 进入mongodb客户端，成功则安装成功</span><br><span class="line">mongo</span><br></pre></td></tr></table></figure></p>
 <hr>
 <h3 id="supervisor"><a href="#supervisor" class="headerlink" title="supervisor"></a>supervisor</h3><p>supervisor是linux下用于管理进程的工具，在本项目中用于管理爬虫及各个系统组件。</p>
 <p>supervisor安装方法如下所示：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">yum install python-setuptools</span><br><span class="line">easy_install supervisor</span><br><span class="line"><span class="meta">#</span><span class="bash"> 生成supervisor配置</span></span><br><span class="line">echo_supervisord_conf &gt; /etc/supervisord.conf</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动supervisord进程</span></span><br><span class="line">supervisord -c /etc/supervisord.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">yum install python-setuptools</span><br><span class="line">easy_install supervisor</span><br><span class="line"><span class="meta">#</span> 生成supervisor配置</span><br><span class="line">echo_supervisord_conf &gt; /etc/supervisord.conf</span><br><span class="line"><span class="meta">#</span> 启动supervisord进程</span><br><span class="line">supervisord -c /etc/supervisord.conf</span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="virtualenv"><a href="#virtualenv" class="headerlink" title="virtualenv"></a>virtualenv</h3><p>virtualenv是用于Python项目环境隔离的工具，针对不同的项目，应该为其配置不同的虚拟环境。</p>
 <p>virtualenv安装方法如下所示：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装virtualenv</span></span><br><span class="line">yum install python-virtualenv -y</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#</span> 安装virtualenv</span><br><span class="line">yum install python-virtualenv -y</span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="安装chrome无头浏览器"><a href="#安装chrome无头浏览器" class="headerlink" title="安装chrome无头浏览器"></a>安装chrome无头浏览器</h3><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 使用阿里云的yum repo，避免网络问题安装依赖失败</span></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http:<span class="comment">//mirrors.aliyun.com/repo/Centos-7.repo</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 安装google-chrome</span></span><br><span class="line">curl https:<span class="comment">//intoli.com/install-google-chrome.sh | bash</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 安装其他依赖</span></span><br><span class="line">yum install ipa-gothic-<span class="built_in">fonts</span> xorg-x11-<span class="built_in">fonts</span><span class="number">-100</span>dpi xorg-x11-<span class="built_in">fonts</span><span class="number">-75</span>dpi xorg-x11-utils xorg-x11-<span class="built_in">fonts</span>-cyrillic xorg-x11-<span class="built_in">fonts</span>-Type1 xorg-x11-<span class="built_in">fonts</span>-misc -y</span><br><span class="line"></span><br><span class="line"><span class="meta"># 测试截屏功能，若当前文件夹下出现截屏文件(screenshot.png)，则安装成功</span></span><br><span class="line"></span><br><span class="line">google-chrome-stable --no-sandbox --headless --<span class="keyword">disable</span>-gpu --screenshot https:<span class="comment">//www.suning.com/</span></span><br></pre></td></tr></table></figure>
-<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><blockquote>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><blockquote>
 <p><a href="https://intoli.com/blog/installing-google-chrome-on-centos/" target="_blank" rel="noopener">https://intoli.com/blog/installing-google-chrome-on-centos/</a></p>
 </blockquote>
 
