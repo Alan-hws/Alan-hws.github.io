@@ -56,32 +56,32 @@
             <li>
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
-                    <span>主页</span>
+                    <span>HOME</span>
                 </a>
             </li>
             <li class="active">
                 <a href="/tags">
                     <i class="iconfont icon-biaoqian1"></i>
-                    <span>标签</span>
+                    <span>TAGS</span>
                 </a>
             </li>
             <li>
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
-                    <span>存档</span>
+                    <span>ARCHIVES</span>
                 </a>
             </li>
             <li>
                 <a href="/about/">
                     <i class="iconfont icon-guanyu2"></i>
-                    <span>关于</span>
+                    <span>ABOUT</span>
                 </a>
             </li>
             
             <li>
                 <a id="search">
                     <i class="iconfont icon-sousuo1"></i>
-                    <span>搜索</span>
+                    <span>SEARCH</span>
                 </a>
             </li>
             
@@ -96,7 +96,7 @@
         <div class="search-input">
             <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
             <input id="search-input">
-            <span id="begin-search">搜索</span>
+            <span id="begin-search">search</span>
         </div>
         <div class="search-result-container" id="search-result-container">
 
@@ -112,13 +112,17 @@
         <!-- Main Content -->
         <div id="tag_cloud" class="tags">
     
-    <a href="#Linux / 爬虫环境搭建" title="Linux / 爬虫环境搭建" rel="1">Linux / 爬虫环境搭建</a>
+    <a href="#Linux" title="Linux" rel="1">Linux</a>
     
-    <a href="#hexo" title="hexo" rel="1">hexo</a>
+    <a href="#搭建爬虫环境" title="搭建爬虫环境" rel="1">搭建爬虫环境</a>
     
     <a href="#redis" title="redis" rel="1">redis</a>
     
-    <a href="#mongo / mongo集群" title="mongo / mongo集群" rel="1">mongo / mongo集群</a>
+    <a href="#hexo" title="hexo" rel="1">hexo</a>
+    
+    <a href="#mongo" title="mongo" rel="1">mongo</a>
+    
+    <a href="#mongo集群" title="mongo集群" rel="1">mongo集群</a>
     
 </div>
 
@@ -126,8 +130,8 @@
 
 
 <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="Linux / 爬虫环境搭建">
-                    <span class="tag-text">Linux / 爬虫环境搭建</span>
+                <span class="fa fa-tag listing-seperator" id="Linux">
+                    <span class="tag-text">Linux</span>
                 </span>
     
     <!-- <li class="listing-item">
@@ -147,8 +151,8 @@
 </div>
 
 <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="hexo">
-                    <span class="tag-text">hexo</span>
+                <span class="fa fa-tag listing-seperator" id="搭建爬虫环境">
+                    <span class="tag-text">搭建爬虫环境</span>
                 </span>
     
     <!-- <li class="listing-item">
@@ -156,9 +160,9 @@
     <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
     </li> -->
     <div class="post-preview">
-        <a href="/2019/08/11/hexo-常用命令/">
+        <a href="/2019/08/11/CentOS 7-下搭建爬虫环境/">
             <h2 class="post-title">
-                hexo 常用命令
+                CentOS 7 下搭建爬虫环境
             </h2>
             
         </a>
@@ -189,8 +193,50 @@
 </div>
 
 <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="mongo / mongo集群">
-                    <span class="tag-text">mongo / mongo集群</span>
+                <span class="fa fa-tag listing-seperator" id="hexo">
+                    <span class="tag-text">hexo</span>
+                </span>
+    
+    <!-- <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li> -->
+    <div class="post-preview">
+        <a href="/2019/08/11/hexo-常用命令/">
+            <h2 class="post-title">
+                hexo 常用命令
+            </h2>
+            
+        </a>
+        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+    </div>
+    
+</div>
+
+<div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="mongo">
+                    <span class="tag-text">mongo</span>
+                </span>
+    
+    <!-- <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li> -->
+    <div class="post-preview">
+        <a href="/2019/07/07/搭建-mongo-集群/">
+            <h2 class="post-title">
+                搭建 mongo 集群
+            </h2>
+            
+        </a>
+        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+    </div>
+    
+</div>
+
+<div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="mongo集群">
+                    <span class="tag-text">mongo集群</span>
                 </span>
     
     <!-- <li class="listing-item">
