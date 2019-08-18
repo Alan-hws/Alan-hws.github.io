@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="一个傻子">
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        VMWare Exsi - Alan-hws de 博客
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> a fool </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.gif">
+        </div>
+        <div class="name">
+            <i>Alan-hws</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#事件起因"><span class="toc-text">事件起因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VMWare-Exsi-是什么"><span class="toc-text">VMWare Exsi 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么选用VMWare-Exsi"><span class="toc-text">为什么选用VMWare Exsi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装VWare-Exsi"><span class="toc-text">安装VWare Exsi</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#准备材料"><span class="toc-text">准备材料</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找网卡型号和相应驱动"><span class="toc-text">查找网卡型号和相应驱动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载镜像和工具"><span class="toc-text">下载镜像和工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把驱动写入镜像"><span class="toc-text">把驱动写入镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把镜像写入U盘-amp-U盘安装系统"><span class="toc-text">把镜像写入U盘 &amp; U盘安装系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装过程中遇到的错误以及注意点"><span class="toc-text">安装过程中遇到的错误以及注意点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-No-Network-Adapters"><span class="toc-text">1.No Network Adapters</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-ESXi-6-5-Install-Error-“Failed-to-Validate-Acceptance-Level-Failed-to-Check-Acceptance-Level-None”"><span class="toc-text">2.ESXi 6.5 Install Error | “Failed to Validate Acceptance Level. Failed to Check Acceptance Level: None”</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> a fool </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        VMWare Exsi
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-08-17 17:48:57</span></span>
+        
+        
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
+        <h2 id="事件起因"><a href="#事件起因" class="headerlink" title="事件起因"></a>事件起因</h2><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*   <span class="number">1.</span>公司的爬虫都是在本地搭建环境的，不是在云服务器。</span><br><span class="line">*   <span class="number">2.</span>公司主要数据需求都是跟随账号的，需要登录才能采集到需要的数据，而同一账号又有多个数据源需求。在框架</span><br><span class="line">      设计的时候我把自动登录部分抽成了独立部分，登录完成之后就把cookie 提交到cookie 池，方便爬虫能够专</span><br><span class="line">      注于数据的采集逻辑。</span><br><span class="line">*   <span class="number">3.</span>而这么设计就会带来另一个问题，需要足够量的机器来完成自动登录部分的工作，最初是使用VMWare Station </span><br><span class="line">      搭建虚拟机的方式来扩展物理机的，但这种方式会对物理硬盘造成很大的压力,一台<span class="number">16</span>G的机器挂载<span class="number">5</span>台虚拟机的时</span><br><span class="line">      候就会卡到动不了，为了解决这一问题最终选择了VMWare Exsi方式搭建。</span><br></pre></td></tr></table></figure>
+<h2 id="VMWare-Exsi-是什么"><a href="#VMWare-Exsi-是什么" class="headerlink" title="VMWare Exsi 是什么"></a>VMWare Exsi 是什么</h2><p>   VMware ESXi：专门构建的裸机 Hypervisor。可直接安装在物理服务器上的强大裸机 hypervisor。VMware ESXi 能够直接访问并控制底层资源，因此可对硬件进行有效分区，从而整合应用并削减成本。它是业界领先的高效体系架构，在可靠性、性能和支持方面树立了行业标杆。</p>
+<p>   Hypervisor：虚拟机监视器（英语：virtual machine monitor，缩写为 VMM），一种运行在基础物理服务器和操作系统之间的中间软件层，可允许多个操作系统和应用共享硬件。也可叫做VMM（ virtual machine monitor ），即虚拟机监视器。Hypervisors是一种在虚拟环境中的“元”操作系统。他们可以访问服务器上包括磁盘和内存在内的所有物理设备。Hypervisors不但协调着这些硬件资源的访问，也同时在各个虚拟机之间施加防护。当服务器启动并执行Hypervisor时，它会加载所有虚拟机客户端的操作系统同时会分配给每一台虚拟机适量的内存，CPU，网络和磁盘。</p>
+<h2 id="为什么选用VMWare-Exsi"><a href="#为什么选用VMWare-Exsi" class="headerlink" title="为什么选用VMWare Exsi"></a>为什么选用VMWare Exsi</h2><p>目前市场上各种x86 管理程序(hypervisor)的架构存在差异，三个最主要的架构类别包括：</p>
+<ul>
+<li>I型：虚拟机直接运行在系统硬件上，创建硬件全仿真实例，被称为“裸机”型。裸机型在虚拟化中Hypervisor直接管理调用硬件资源，不需要底层操作系统.</li>
+<li>II型：虚拟机运行在传统操作系统上，同样创建的是硬件全仿真实例，被称为“托管（宿主）”型。托管型/主机型Hypervisor运行在基础操作系统上，构建出一整套虚拟硬件平台（CPU/Memory/Storage/Adapter），使用者根据需要安装新的操作系统和应用软件，底层和上层的操作系统可以完全无关化，如Windows运行Linux操作系统。主机虚拟化中VM的应用程序调用硬件资源时需要经过：VM内核-&gt;Hypervisor-&gt;主机内核，因此相对来说，性能是三种虚拟化技术中最差的。</li>
+<li>Ⅲ型：虚拟机运行在传统操作系统上，创建一个独立的虚拟化实例（容器），指向底层托管操作系统，被称为“操作系统虚拟化”。三种主要的虚拟化架构类型操作系统虚拟化是在操作系统中模拟出运行应用程序的容器，所有虚拟机共享内核空间，性能最好，耗费资源最少。但是缺点是底层和上层必须使用同一种操作系统，如底层操作系统运行的是Windows系统，则VPS/VE就必须运行Windows。</li>
+</ul>
+<p>常见的Hypervisor有两类： 裸机型与宿主型裸机型的Hypervisor最为常见，直接安装在硬件计算资源上，操作系统安装并且运行在Hypervisor之上。我们常用的VMWare Station 就是属于II型，而VMWare Exsi 是属于I型。III型显然局限性太大，不适合选用。</p>
+<h2 id="安装VWare-Exsi"><a href="#安装VWare-Exsi" class="headerlink" title="安装VWare Exsi"></a>安装VWare Exsi</h2><h3 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h3><ul>
+<li>U盘</li>
+<li>Win 7 系统电脑</li>
+</ul>
+<h3 id="查找网卡型号和相应驱动"><a href="#查找网卡型号和相应驱动" class="headerlink" title="查找网卡型号和相应驱动"></a>查找网卡型号和相应驱动</h3><p>   直接从官网下载的VMWare Exsi 镜像是不包含网卡驱动的，我们要通过第三方工具ESXi-Customizer-v2.7.2 将vib 驱动包和Esxi 的iso安装镜像封装在一起先获取到物理机器的网卡型号。</p>
+<h3 id="下载镜像和工具"><a href="#下载镜像和工具" class="headerlink" title="下载镜像和工具"></a>下载镜像和工具</h3><ul>
+<li>镜像：<br><a href="https://my.vmware.com/cn/web/vmware/info/slug/datacenter_cloud_infrastructure/vmware_vsphere/6_7" target="_blank" rel="noopener">https://my.vmware.com/cn/web/vmware/info/slug/datacenter_cloud_infrastructure/vmware_vsphere/6_7</a></li>
+<li>网卡驱动：<br><a href="https://vibsdepot.v-front.de/wiki/index.php/List_of_currently_available_ESXi_packages" target="_blank" rel="noopener">https://vibsdepot.v-front.de/wiki/index.php/List_of_currently_available_ESXi_packages</a></li>
+<li>ESXi-Customizer-v2.7.2：<br><a href="https://www.v-front.de/p/esxi-customizer.html#download" target="_blank" rel="noopener">https://www.v-front.de/p/esxi-customizer.html#download</a></li>
+<li>UltraISO：<br><a href="https://cn.ultraiso.net/xiazai.html" target="_blank" rel="noopener">https://cn.ultraiso.net/xiazai.html</a></li>
+</ul>
+<h3 id="把驱动写入镜像"><a href="#把驱动写入镜像" class="headerlink" title="把驱动写入镜像"></a>把驱动写入镜像</h3><p>下载后用ESXi-Customizer-v2.7.2 这个软件将官方exsi 6的ISO文件打上需要的网卡驱动就可使用了<br>具体做如下：</p>
+<ul>
+<li>1.在win7环境下以管理员权限运行ESXi-Customizer-v2.7.2 中的ESXi-Customizer.cmd</li>
+<li>2.弹出对话框点击第一个“Browse”选择你的ESXI6.0.ISO文件，</li>
+<li>3.点击第二个“Browse”选择你的需要集成的硬件驱动，记得选择“XXX.VIB”文件。</li>
+<li>4.点击第三个“Browse”选择你生成ISO文件存放位置。</li>
+<li>5.点击Run开始，会提示以下内容，点击“否”即可</li>
+</ul>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Note: The [ESXI-Customizer]<span class="built_in"> tool </span>is now officially UNSUPPORTED.</span><br><span class="line">Please use the [ESXI-Customizer-PS] PowerCli<span class="built_in"> script </span>instead.</span><br><span class="line"><span class="keyword">Do</span> you want <span class="keyword">to</span> <span class="builtin-name">get</span> more information?</span><br><span class="line">(<span class="keyword">To</span> <span class="builtin-name">disable</span> this reminder uncheck the Automatic update check option.)</span><br><span class="line"></span><br><span class="line">意思就是，注意ESXI-Customizer工具正式不受支持，建议使用PowerCli，想要了解更多信息点击是</span><br></pre></td></tr></table></figure>
+<p>强调一点：一定要在win7 系统环境下执行</p>
+<h3 id="把镜像写入U盘-amp-U盘安装系统"><a href="#把镜像写入U盘-amp-U盘安装系统" class="headerlink" title="把镜像写入U盘 &amp; U盘安装系统"></a>把镜像写入U盘 &amp; U盘安装系统</h3><ul>
+<li>到了这一步那就是普通用U盘安装系统步骤啦。这里不做深入讲解。</li>
+</ul>
+<h2 id="安装过程中遇到的错误以及注意点"><a href="#安装过程中遇到的错误以及注意点" class="headerlink" title="安装过程中遇到的错误以及注意点"></a>安装过程中遇到的错误以及注意点</h2><h3 id="1-No-Network-Adapters"><a href="#1-No-Network-Adapters" class="headerlink" title="1.No Network Adapters"></a>1.No Network Adapters</h3><p>这是你网卡型号没找对，驱动匹配不上，或者直接就没有，如果是新机器的话可以先写一个win PE 到U 盘然后再查看到底是哪个型号</p>
+<h3 id="2-ESXi-6-5-Install-Error-“Failed-to-Validate-Acceptance-Level-Failed-to-Check-Acceptance-Level-None”"><a href="#2-ESXi-6-5-Install-Error-“Failed-to-Validate-Acceptance-Level-Failed-to-Check-Acceptance-Level-None”" class="headerlink" title="2.ESXi 6.5 Install Error | “Failed to Validate Acceptance Level. Failed to Check Acceptance Level: None”"></a>2.ESXi 6.5 Install Error | “Failed to Validate Acceptance Level. Failed to Check Acceptance Level: None”</h3><p>这个是由于现在台式机主板大多采用UEFI模式引导，需要改BIOS为传统Legacy模式。HP台式机开机按F10进入BIOS，然后找到引导模式，把UEFI安全模式禁用，启动Legacy传统模式，然后再U盘引导进行安装。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;  <span class="number">1</span>. http<span class="variable">s:</span>//searchvirtual.techtarget.<span class="keyword">com</span>.<span class="keyword">cn</span>/microsite/<span class="number">10</span>-<span class="number">21943</span>/</span><br><span class="line">&gt;  <span class="number">2</span>. http<span class="variable">s:</span>//www.vmware.<span class="keyword">com</span>/<span class="keyword">cn</span>/products/esxi-<span class="built_in">and</span>-esx.html</span><br><span class="line">&gt;  <span class="number">3</span>. http<span class="variable">s:</span>//baike.baidu.<span class="keyword">com</span>/item/hypervisor/<span class="number">3353492</span>?fr=aladdin</span><br><span class="line">&gt;  <span class="number">4</span>. http<span class="variable">s:</span>//baike.baidu.<span class="keyword">com</span>/item/esxi/<span class="number">7308858</span>?fr=aladdin</span><br></pre></td></tr></table></figure>
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
