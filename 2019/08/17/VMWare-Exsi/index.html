@@ -56,32 +56,32 @@
             <li>
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
-                    <span>主页</span>
+                    <span>HOME</span>
                 </a>
             </li>
             <li>
                 <a href="/tags">
                     <i class="iconfont icon-biaoqian1"></i>
-                    <span>标签</span>
+                    <span>TAGS</span>
                 </a>
             </li>
             <li>
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
-                    <span>存档</span>
+                    <span>ARCHIVES</span>
                 </a>
             </li>
             <li>
                 <a href="/about/">
                     <i class="iconfont icon-guanyu2"></i>
-                    <span>关于</span>
+                    <span>ABOUT</span>
                 </a>
             </li>
             
             <li>
                 <a id="search">
                     <i class="iconfont icon-sousuo1"></i>
-                    <span>搜索</span>
+                    <span>SEARCH</span>
                 </a>
             </li>
             
@@ -100,7 +100,7 @@
         <div class="search-input">
             <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
             <input id="search-input">
-            <span id="begin-search">搜索</span>
+            <span id="begin-search">search</span>
         </div>
         <div class="search-result-container" id="search-result-container">
 
@@ -123,15 +123,15 @@
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2019-08-17 17:48:57</span></span>
+        <span class="attr">Post：<span>2019-08-17 17:48:57</span></span>
         
         
-        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
 </span>
 
     </div>
     <div class="post-content ">
-        <h2 id="事件起因"><a href="#事件起因" class="headerlink" title="事件起因"></a>事件起因</h2><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*   <span class="number">1.</span>公司的爬虫都是在本地搭建环境的，不是在云服务器。</span><br><span class="line">*   <span class="number">2.</span>公司主要数据需求都是跟随账号的，需要登录才能采集到需要的数据，而同一账号又有多个数据源需求。在框架</span><br><span class="line">      设计的时候我把自动登录部分抽成了独立部分，登录完成之后就把cookie 提交到cookie 池，方便爬虫能够专</span><br><span class="line">      注于数据的采集逻辑。</span><br><span class="line">*   <span class="number">3.</span>而这么设计就会带来另一个问题，需要足够量的机器来完成自动登录部分的工作，最初是使用VMWare Station </span><br><span class="line">      搭建虚拟机的方式来扩展物理机的，但这种方式会对物理硬盘造成很大的压力,一台<span class="number">16</span>G的机器挂载<span class="number">5</span>台虚拟机的时</span><br><span class="line">      候就会卡到动不了，为了解决这一问题最终选择了VMWare Exsi方式搭建。</span><br></pre></td></tr></table></figure>
+        <h2 id="事件起因"><a href="#事件起因" class="headerlink" title="事件起因"></a>事件起因</h2><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*   <span class="number">1.</span>公司的爬虫都是在本地搭建环境的，不是在云服务器。</span><br><span class="line">*   <span class="number">2.</span>公司主要数据需求都是跟随账号的，需要登录才能采集到需要的数据，而同一账号又有多个数据源需求。在框架</span><br><span class="line">      设计的时候我把自动登录部分抽成了独立部分，登录完成之后就把cookie 提交到cookie 池，方便爬虫能够专</span><br><span class="line">      注于数据的采集逻辑。</span><br><span class="line">*   <span class="number">3.</span>而这么设计就会带来另一个问题，需要足够量的机器来完成自动登录部分的工作，最初是使用在Windows 上面安</span><br><span class="line">      装VMWare WorkStation 搭建虚拟机的方式来扩展物理机的，但这种方式会对物理硬盘造成很大的压力,一台</span><br><span class="line">      <span class="number">16</span>G的机器挂载<span class="number">5</span>台虚拟机的时候就会卡到动不了，为了解决这一问题最终选择了VMWare Exsi方式搭建。</span><br></pre></td></tr></table></figure>
 <h2 id="VMWare-Exsi-是什么"><a href="#VMWare-Exsi-是什么" class="headerlink" title="VMWare Exsi 是什么"></a>VMWare Exsi 是什么</h2><p>   VMware ESXi：专门构建的裸机 Hypervisor。可直接安装在物理服务器上的强大裸机 hypervisor。VMware ESXi 能够直接访问并控制底层资源，因此可对硬件进行有效分区，从而整合应用并削减成本。它是业界领先的高效体系架构，在可靠性、性能和支持方面树立了行业标杆。</p>
 <p>   Hypervisor：虚拟机监视器（英语：virtual machine monitor，缩写为 VMM），一种运行在基础物理服务器和操作系统之间的中间软件层，可允许多个操作系统和应用共享硬件。也可叫做VMM（ virtual machine monitor ），即虚拟机监视器。Hypervisors是一种在虚拟环境中的“元”操作系统。他们可以访问服务器上包括磁盘和内存在内的所有物理设备。Hypervisors不但协调着这些硬件资源的访问，也同时在各个虚拟机之间施加防护。当服务器启动并执行Hypervisor时，它会加载所有虚拟机客户端的操作系统同时会分配给每一台虚拟机适量的内存，CPU，网络和磁盘。</p>
 <h2 id="为什么选用VMWare-Exsi"><a href="#为什么选用VMWare-Exsi" class="headerlink" title="为什么选用VMWare Exsi"></a>为什么选用VMWare Exsi</h2><p>目前市场上各种x86 管理程序(hypervisor)的架构存在差异，三个最主要的架构类别包括：</p>
@@ -140,7 +140,7 @@
 <li>II型：虚拟机运行在传统操作系统上，同样创建的是硬件全仿真实例，被称为“托管（宿主）”型。托管型/主机型Hypervisor运行在基础操作系统上，构建出一整套虚拟硬件平台（CPU/Memory/Storage/Adapter），使用者根据需要安装新的操作系统和应用软件，底层和上层的操作系统可以完全无关化，如Windows运行Linux操作系统。主机虚拟化中VM的应用程序调用硬件资源时需要经过：VM内核-&gt;Hypervisor-&gt;主机内核，因此相对来说，性能是三种虚拟化技术中最差的。</li>
 <li>Ⅲ型：虚拟机运行在传统操作系统上，创建一个独立的虚拟化实例（容器），指向底层托管操作系统，被称为“操作系统虚拟化”。三种主要的虚拟化架构类型操作系统虚拟化是在操作系统中模拟出运行应用程序的容器，所有虚拟机共享内核空间，性能最好，耗费资源最少。但是缺点是底层和上层必须使用同一种操作系统，如底层操作系统运行的是Windows系统，则VPS/VE就必须运行Windows。</li>
 </ul>
-<p>常见的Hypervisor有两类： 裸机型与宿主型裸机型的Hypervisor最为常见，直接安装在硬件计算资源上，操作系统安装并且运行在Hypervisor之上。我们常用的VMWare Station 就是属于II型，而VMWare Exsi 是属于I型。III型显然局限性太大，不适合选用。</p>
+<p>常见的Hypervisor有两类： 裸机型与宿主型裸机型的Hypervisor最为常见，直接安装在硬件计算资源上，操作系统安装并且运行在Hypervisor之上。我们常用的VMWare WorkStation 就是属于II型，而VMWare Exsi 是属于I型。III型显然局限性太大，不适合选用。</p>
 <h2 id="安装VWare-Exsi"><a href="#安装VWare-Exsi" class="headerlink" title="安装VWare Exsi"></a>安装VWare Exsi</h2><h3 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h3><ul>
 <li>U盘</li>
 <li>Win 7 系统电脑</li>
